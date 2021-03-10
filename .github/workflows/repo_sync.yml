@@ -1,15 +1,15 @@
 # File: .github/workflows/repo-sync.yml
-name: sync-LXK9301-scripts
+name: sync-stark666-scripts
 on:
   schedule:
-    - cron: '1 0,15 * * *'
+    - cron: '0 */2 * * *'
   workflow_dispatch:
   watch:
     types: started
   push:
-    branches: [ master ]
+    branches: [ main ]
   repository_dispatch:
-    types: sync-LXK9301-scripts
+    types: sync-stark666-scripts
 jobs:
   repo-sync:
     env:
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/stark666
         with:
           persist-credentials: false
 
